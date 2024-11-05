@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MailHog Configuration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #c62828;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MailHog Configuration</h1>
+        <form id="configForm">
+            <div class="form-group">
+                <label for="smtpBindAddr">SMTP Bind Address:</label>
+                <input type="text" id="smtpBindAddr" required>
+            </div>
+            <div class="form-group">
+                <label for="uiBindAddr">UI Bind Address:</label>
+                <input type="text" id="uiBindAddr" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="footer">
+            Buzzlightyear's MailHog Configuration © 2024
+        </div>
+    </div>
+    <script>
+        const { ipcRenderer } = require('electron');
+
+        document.getElementById('smtpBindAddr').value = process.env.SMTP_BIND_ADDR || '';
+        document.getElementById('uiBindAddr').value = process.env.UI_BIND_ADDR || '';
+
+        document.getElementById('configForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const smtpBindAddr = document.getElementById('smtpBindAddr').value;
+            const uiBindAddr = document.getElementById('uiBindAddr').value;
+            ipcRenderer.send('submit-config', smtpBindAddr, uiBindAddr);
+        });
+    </script>
+</body>
+</html>

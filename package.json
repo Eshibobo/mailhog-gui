@@ -1,0 +1,42 @@
+{
+  "name": "mailhog-gui",
+  "version": "1.0.0",
+  "main": "main.js",
+  "description": "electron app for mailhog",
+  "author": {
+    "name": "buzzlightyear"
+  },
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "build": {
+    "appId": "com.buzzlightyear.mailhogapp",
+    "mac": {
+      "target": "dmg",
+      "icon": "resources/hog.png"
+    },
+    "files": [
+      "main.js",
+      "config.html"
+    ],
+    "extraFiles": [
+      {
+        "from": "bin/MailHog",
+        "to": "bin/MailHog"
+      },
+      {
+        "from": ".env",
+        "to": ".env"
+      }
+    ],
+    "asar": false
+  },
+  "devDependencies": {
+    "electron": "^33.0.2",
+    "electron-builder": "^25.1.8"
+  }
+}
