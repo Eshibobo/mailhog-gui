@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MailHog Configuration</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link to your pulled MailHog style.css -->
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #f8f9fa; /* Light gray background */
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 600px; /* Center container */
             margin: 0 auto;
-            background-color: #ffffff;
+            background-color: #ffffff; /* White background for the form */
             border-radius: 4px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            min-height: 300px;
+            min-height: 300px; /* Ensures enough height for the form */
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            flex-direction: column; /* Align elements vertically */
+            justify-content: center; /* Center contents vertically */
         }
 
         h1 {
@@ -51,7 +51,7 @@
         }
 
         button {
-            background-color: #f44336;
+            background-color: #f44336; /* MailHog logo red color */
             color: white;
             border: none;
             padding: 10px 15px;
@@ -59,12 +59,12 @@
             font-size: 16px;
             cursor: pointer;
             display: block;
-            width: 100%;
+            width: 100%; /* Full width button */
             transition: background-color 0.3s;
         }
 
         button:hover {
-            background-color: #c62828;
+            background-color: #c62828; /* Darker red on hover */
         }
 
         .form-group {
@@ -100,6 +100,7 @@
     <script>
         const { ipcRenderer } = require('electron');
 
+        // Populate input fields with current environment values
         document.getElementById('smtpBindAddr').value = process.env.SMTP_BIND_ADDR || '';
         document.getElementById('uiBindAddr').value = process.env.UI_BIND_ADDR || '';
 
