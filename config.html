@@ -54,27 +54,46 @@
         input[type="text"] {
             width: calc(100% - 20px);
             padding: 10px;
-            border: 1px solid #214b75;
+            border: 1px solid #021324;
             border-radius: 4px;
             margin-bottom: 15px;
             font-size: 16px;
         }
 
         button {
-            background-color: #f44336; /* MailHog logo red color */
-            color: white;
+            background-color: #f44336; /* MailHog submit button red */
+            color: white;   
             border: none;
             padding: 10px 15px;
-            border-radius: 4px;
+            border-radius: 10px;
             font-size: 16px;
             cursor: pointer;
             display: block;
             width: 100%; /* Full width button */
             transition: background-color 0.3s;
+            transition: background-color 0.3s, padding-right 0.3s;
+            position: relative;
+            overflow: hidden; /* Ensures Animation stays within button */
+            
         }
-
+        
         button:hover {
             background-color: #c62828; /* Darker red on hover */
+            padding-right: 10px; /* Extra space for arrow animation */
+        }
+
+        button::after {
+            content: '\00bb'; /* Unicode arrow */
+            opacity: 0;
+            margin-left: 0.9px; /* Space between text and arrow */
+            transition: opacity 0.3s;
+
+        }
+
+        button:hover::after {
+
+            opacity: 1;
+            right: 10px; /* Move in when hovered */ 
         }
 
         .form-group {
@@ -87,6 +106,7 @@
             font-size: 0.9em;
             color: #f3eeee;
         }
+        
     </style>
 </head>
 <body>
@@ -105,7 +125,7 @@
                 <label for="uiBindAddr">UI Bind Address:</label>
                 <input type="text" id="uiBindAddr" required>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit">Enter</button>
         </form>
         <div class="footer">
             Buzzlightyear's MailHog Configuration © 2024
