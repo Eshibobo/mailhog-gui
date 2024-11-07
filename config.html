@@ -8,43 +8,53 @@
     <link rel="stylesheet" href="style.css"> <!-- Link to your pulled MailHog style.css -->
     <style>
         body {
-            background-color: #f8f9fa; /* Light gray background */
+            
+           /* background-color: #263a4d; /* Light gray background */
+           background-image: url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_26hGjLEU0CMgWpBBneU1T44yo5m_JgVH20IDmbxUi3VThfPaPr8w7jQEY9XpSryua6GZ-dFxjnC7c-kfwoVeEXKn2SlWjc3UIyz00T3AuBi44d7O_i7_DrEdRilmER8BlFWuXOQuLnOEy2OfxmZkXzPVpvW7kRBiJdmKcC7M6alCkSmPjFDCbFXRpA/s1600-rw/The-portal-tree-1242023.png);
+           background-position: center;
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 30px;
+            
         }
         
         .container {
-            max-width: 600px; /* Center container */
+            max-width: 500px; /* Center container */
             margin: 0 auto;
-            background-color: #ffffff; /* White background for the form */
-            border-radius: 4px;
+            background-color: rgba(253, 238, 238,); /* Semi-transparent background */
+            border-radius: 6ch;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            min-height: 300px; /* Ensures enough height for the form */
+            padding: 170px;
+            min-height: 00px; /* Ensures enough height for the form */
             display: flex;
             flex-direction: column; /* Align elements vertically */
-            justify-content: center; /* Center contents vert */
+            justify-content: center; /* Center contents vertically */
+            color: #000; /* Ensures text remains clear */
+                
+            
+            
         }
-
+         
         h1 {
             font-size: 24px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: center;
-            color: #333;
+            color: #f3f1f1;
+            
+        
         }
-
+        
         label {
             font-weight: bold;
             margin-bottom: 5px;
             display: block;
-            color: #333;
+            color: #f3f1f1;
         }
 
         input[type="text"] {
             width: calc(100% - 20px);
             padding: 10px;
-            border: 1px solid #ced4da;
+            border: 1px solid #214b75;
             border-radius: 4px;
             margin-bottom: 15px;
             font-size: 16px;
@@ -75,13 +85,17 @@
             text-align: center;
             margin-top: 20px;
             font-size: 0.9em;
-            color: #666;
+            color: #f3eeee;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>MailHog Configuration</h1>
+        <img src="./mailhog_logo.png" 
+            width="100" 
+            height="55" 
+            style="display: block; margin: 0 auto;">
         <form id="configForm">
             <div class="form-group">
                 <label for="smtpBindAddr">SMTP Bind Address:</label>
